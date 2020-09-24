@@ -66,12 +66,9 @@ class CarCard extends StatelessWidget {
             Center(
               child: Padding(
                 padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical),
-                child: Hero(
-                  tag: "${Repo.cars[index].id}",
-                  child: Image.asset(
-                    Repo.cars[index].image,
-                    fit: BoxFit.fill,
-                  ),
+                child: Image.asset(
+                  Repo.cars[index].image,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
@@ -81,7 +78,7 @@ class CarCard extends StatelessWidget {
     );
   }
 
-  goToDetails(BuildContext context) async {
+  goToDetails(BuildContext context) {
     Navigator.push(
         context,
         SizeRoute(

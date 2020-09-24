@@ -116,12 +116,9 @@ class DetailsBody extends StatelessWidget {
               child: Padding(
                 padding:
                     EdgeInsets.only(top: SizeConfig.blockSizeVertical * 33),
-                child: Hero(
-                  tag: carObject.id,
-                  child: Image.asset(
-                    carObject.image,
-                    fit: BoxFit.fill,
-                  ),
+                child: Image.asset(
+                  carObject.image,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
