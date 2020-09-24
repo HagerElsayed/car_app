@@ -11,11 +11,17 @@ class SizeConfig {
   static double _safeAreaVertical;
   static double safeBlockHorizontal;
   static double safeBlockVertical;
+  static Orientation orientation;
+  static double defaultSize;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;
+    orientation = _mediaQueryData.orientation;
+    defaultSize = orientation == Orientation.portrait
+        ? screenWidth * 0.03
+        : screenHeight * 0.03;
     blockSizeHorizontal = screenWidth / 100;
     blockSizeVertical = screenHeight / 100;
 

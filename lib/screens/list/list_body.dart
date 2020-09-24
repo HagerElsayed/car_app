@@ -13,8 +13,8 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: SizeConfig.blockSizeHorizontal * 10,
-        vertical: SizeConfig.blockSizeVertical * 2,
+        horizontal: SizeConfig.defaultSize * 3.5,
+        vertical: SizeConfig.defaultSize,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

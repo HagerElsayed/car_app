@@ -12,22 +12,23 @@ class CarCard extends StatelessWidget {
   CarCard({@required this.index});
   @override
   Widget build(BuildContext context) {
+    double _defaultSize = SizeConfig.defaultSize;
+
     return GestureDetector(
       onTap: () {
         goToDetails(context);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: SizeConfig.blockSizeVertical * 2,
+          vertical: _defaultSize,
         ),
         child: Stack(
           children: [
             Container(
-              margin: EdgeInsets.only(top: SizeConfig.safeBlockVertical * 12),
+              margin: EdgeInsets.only(top: _defaultSize * 7.5),
               padding: EdgeInsets.only(
-//                top: SizeConfig.safeBlockVertical * 6,
-                left: 20,
-                right: 20,
+                left: _defaultSize * 2,
+                right: _defaultSize * 2,
               ),
               width: double.infinity,
               decoration: BoxDecoration(
@@ -39,18 +40,19 @@ class CarCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(
-                    height: SizeConfig.safeBlockVertical * 5,
+                    height: _defaultSize * 4,
                   ),
                   CommonText(
                     text: Repo.cars[index].type,
                     textColor: kDefaultAppColor,
+                    fontSize: 1.6,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CommonText(
                         text: '${Repo.cars[index].price}',
-                        fontSize: 4,
+                        fontSize: 1.2,
                       ),
                       InkWell(
                           onTap: () {},
@@ -58,17 +60,20 @@ class CarCard extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: SizeConfig.safeBlockVertical * 5,
+                    height: _defaultSize * 2,
                   ),
                 ],
               ),
             ),
             Center(
               child: Padding(
-                padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical),
-                child: Image.asset(
-                  Repo.cars[index].image,
-                  fit: BoxFit.fill,
+                padding: EdgeInsets.only(top: _defaultSize),
+                child: Hero(
+                  tag: "${Repo.cars[index].id}",
+                  child: Image.asset(
+                    Repo.cars[index].image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),

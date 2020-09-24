@@ -21,14 +21,13 @@ class CommonText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.only(top: SizeConfig.safeBlockVertical * (padding ?? 1)),
+      padding: EdgeInsets.only(top: SizeConfig.defaultSize * (padding ?? 1)),
       child: Text(
         text,
         style: TextStyle(
             color: textColor ?? kTextColor,
             fontWeight: fontWeight ?? FontWeight.w400,
-            fontSize: SizeConfig.safeBlockHorizontal * (fontSize ?? 5)),
+            fontSize: SizeConfig.defaultSize * (fontSize ?? 1.8)),
       ),
     );
   }
