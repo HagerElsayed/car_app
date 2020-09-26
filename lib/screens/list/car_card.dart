@@ -25,7 +25,7 @@ class CarCard extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              margin: EdgeInsets.only(top: _defaultSize * 7.5),
+              margin: EdgeInsets.only(top: _defaultSize * 6.5),
               padding: EdgeInsets.only(
                 left: _defaultSize * 2,
                 right: _defaultSize * 2,
@@ -68,12 +68,9 @@ class CarCard extends StatelessWidget {
             Center(
               child: Padding(
                 padding: EdgeInsets.only(top: _defaultSize),
-                child: Hero(
-                  tag: "${Repo.cars[index].id}",
-                  child: Image.asset(
-                    Repo.cars[index].image,
-                    fit: BoxFit.fill,
-                  ),
+                child: Image.asset(
+                  Repo.cars[index].image,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),

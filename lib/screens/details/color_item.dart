@@ -16,8 +16,8 @@ class ColorItem extends StatelessWidget {
       child: Padding(
           padding: const EdgeInsets.all(2.0),
           child: Container(
-            height: SizeConfig.safeBlockVertical * 6,
-            width: SizeConfig.safeBlockHorizontal * 6,
+            height: SizeConfig.defaultSize,
+            width: SizeConfig.defaultSize * 2,
             decoration: BoxDecoration(
                 color: HexColor(color),
                 shape: BoxShape.circle,

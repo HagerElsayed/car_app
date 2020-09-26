@@ -18,19 +18,21 @@ class DetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _defaultSize = SizeConfig.defaultSize;
     return Container(
+      height: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/background_image.png"),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
       child: SingleChildScrollView(
         child: Stack(
           children: [
             Positioned(
-              top: 60,
-              left: 20,
+              top: _defaultSize * 5,
+              left: _defaultSize * 3,
               child: InkWell(
                   onTap: () {
                     Navigator.pop(context);
@@ -40,29 +42,34 @@ class DetailsBody extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
-                  height: SizeConfig.blockSizeVertical * 40,
+                  height: _defaultSize *
+                      (MediaQuery.of(context).orientation ==
+                              Orientation.portrait
+                          ? 24 //34
+                          : 9),
                 ),
                 Container(
-                  margin:
-                      EdgeInsets.only(top: SizeConfig.safeBlockVertical * 1),
-                  padding: EdgeInsets.only(
-                    top: SizeConfig.safeBlockVertical * 6,
-                    left: 20,
-                    right: 20,
+                  margin: EdgeInsets.only(top: _defaultSize * 3),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: _defaultSize * 3,
                   ),
-                  height: SizeConfig.blockSizeVertical * 60,
+                  height: SizeConfig.screenHeight -
+                      (MediaQuery.of(context).orientation ==
+                              Orientation.portrait
+                          ? 300 //34
+                          : 0),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
-                        topLeft: const Radius.circular(40.0),
-                        topRight: const Radius.circular(40.0),
+                        topLeft: Radius.circular(_defaultSize * 4),
+                        topRight: Radius.circular(_defaultSize * 4),
                       )),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       SizedBox(
-                        height: 20,
+                        height: _defaultSize * 2,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,20 +86,20 @@ class DetailsBody extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: SizeConfig.safeBlockVertical,
+                        height: _defaultSize,
                       ),
                       ColorContainer(carObject: carObject),
                       CommonText(
                         text: "Features:",
-                        fontSize: 4.5,
+                        fontSize: 1.6,
                       ),
                       CommonText(
                         text: carObject.features,
-                        fontSize: 3.5,
+                        fontSize: 1.2,
                         textColor: kDescriptionColor,
                       ),
                       SizedBox(
-                        height: SizeConfig.blockSizeVertical * 10,
+                        height: _defaultSize * 5,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,10 +110,13 @@ class DetailsBody extends StatelessWidget {
                           RoundButton(
                             buttonTitle: "BUY NOW",
                             onPressed: () {},
-                            width: SizeConfig.safeBlockHorizontal * 50,
+                            width: _defaultSize * 15,
                           )
                         ],
-                      )
+                      ),
+//                      SizedBox(
+//                        height: _defaultSize * 5,
+//                      )
                     ],
                   ),
                 )
@@ -114,8 +124,12 @@ class DetailsBody extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                padding:
-                    EdgeInsets.only(top: SizeConfig.blockSizeVertical * 33),
+                padding: EdgeInsets.only(
+                    top: _defaultSize *
+                        (MediaQuery.of(context).orientation ==
+                                Orientation.portrait
+                            ? 20 //30
+                            : 5)),
                 child: Image.asset(
                   carObject.image,
                   fit: BoxFit.fill,

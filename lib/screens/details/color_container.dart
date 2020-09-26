@@ -15,10 +15,11 @@ class ColorContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: SizeConfig.safeBlockVertical * 5,
+      height: SizeConfig.defaultSize * 3,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: carObject.carColors.length,
+        padding: EdgeInsets.only(left: 2.0),
         itemBuilder: (context, index) => ColorItem(
           color: carObject.carColors[index].color,
           isSelected: carObject.carColors[index].isSelected,

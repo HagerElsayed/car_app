@@ -10,10 +10,10 @@ class RoundButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(SizeConfig.safeBlockVertical * 1),
+      padding: EdgeInsets.all(SizeConfig.defaultSize),
       child: SizedBox(
         width: width ?? double.infinity,
-        height: SizeConfig.safeBlockVertical * 6,
+        height: SizeConfig.defaultSize * 4,
         child: FlatButton(
           color: kDefaultAppColor,
           shape: new RoundedRectangleBorder(
@@ -23,8 +23,7 @@ class RoundButton extends StatelessWidget {
           child: Text(
             buttonTitle,
             style: TextStyle(
-                color: Colors.white,
-                fontSize: SizeConfig.safeBlockHorizontal * 5),
+                color: Colors.white, fontSize: SizeConfig.defaultSize * 1.6),
           ),
         ),
       ),
